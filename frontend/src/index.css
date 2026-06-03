@@ -1,0 +1,153 @@
+/* ─── Google Font ─────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ─── Tailwind Layers ─────────────────────────────────────────────────────── */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base / Reset ────────────────────────────────────────────────────────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    color-scheme: dark; /* makes native widgets (date picker, select) use dark UI */
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased text-gray-100;
+    background-color: #0f1117;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 10% 0%, rgba(124, 58, 237, 0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 90% 100%, rgba(236, 72, 153, 0.12) 0%, transparent 60%);
+    min-height: 100dvh;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #1a1d27; }
+  ::-webkit-scrollbar-thumb { background: #3a3f5c; border-radius: 999px; }
+  ::-webkit-scrollbar-thumb:hover { background: #4f546e; }
+
+  /* Date/number input tweaks */
+  input[type='date']::-webkit-calendar-picker-indicator {
+    filter: invert(0.7);
+    cursor: pointer;
+  }
+
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    opacity: 0.4;
+  }
+}
+
+/* ─── Component Classes ────────────────────────────────────────────────────── */
+@layer components {
+
+  /* Glass card — base */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 1rem;
+  }
+
+  /* Glass card — with hover transition */
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300;
+  }
+  .glass-card-hover:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 8px 32px rgba(124, 58, 237, 0.12);
+  }
+
+  /* Primary gradient button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 font-semibold text-white
+           px-5 py-2.5 rounded-xl
+           transition-all duration-200 cursor-pointer
+           disabled:opacity-50 disabled:cursor-not-allowed;
+    background: linear-gradient(135deg, #7c3aed, #9333ea);
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3);
+  }
+  .btn-primary:hover:not(:disabled) {
+    background: linear-gradient(135deg, #6d28d9, #7c3aed);
+    box-shadow: 0 6px 24px rgba(124, 58, 237, 0.45);
+    transform: translateY(-1px) scale(1.02);
+  }
+  .btn-primary:active:not(:disabled) {
+    transform: scale(0.97);
+  }
+
+  /* Secondary ghost button */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-1.5 font-medium text-gray-300
+           px-4 py-2 rounded-xl border
+           transition-all duration-200 cursor-pointer;
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.24);
+    @apply text-white;
+  }
+
+  /* Danger button */
+  .btn-danger {
+    @apply inline-flex items-center justify-center font-medium text-red-400
+           px-3 py-1.5 rounded-lg border
+           transition-all duration-200 cursor-pointer;
+    background: rgba(239, 68, 68, 0.12);
+    border-color: rgba(239, 68, 68, 0.2);
+  }
+  .btn-danger:hover {
+    background: rgba(239, 68, 68, 0.22);
+    border-color: rgba(239, 68, 68, 0.4);
+    @apply text-red-300;
+  }
+
+  /* Form inputs */
+  .input-field {
+    @apply w-full rounded-xl px-4 py-2.5 text-gray-100
+           placeholder-gray-500 text-sm
+           transition-all duration-200 outline-none;
+    background: rgba(35, 38, 55, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .input-field:focus {
+    border-color: rgba(124, 58, 237, 0.6);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+  }
+  .input-field.input-error {
+    border-color: rgba(239, 68, 68, 0.6);
+  }
+  .input-field.input-error:focus {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+  }
+
+  /* Category badge */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold
+           border tracking-wide;
+  }
+
+  /* Section headings inside cards */
+  .section-title {
+    @apply text-base font-semibold text-gray-200 mb-4 flex items-center gap-2;
+  }
+
+  /* Spinner */
+  .spinner {
+    @apply w-4 h-4 rounded-full border-2 animate-spin;
+    border-color: rgba(255,255,255,0.25);
+    border-top-color: white;
+  }
+}

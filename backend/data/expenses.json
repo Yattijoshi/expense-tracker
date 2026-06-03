@@ -1,0 +1,26 @@
+[
+  {
+    "id": "02c33fdb-a985-4bf2-bfaf-c4f20bc3899f",
+    "amount": 1000,
+    "date": "2026-06-02",
+    "category": "Transport",
+    "description": "1000",
+    "createdAt": "2026-06-03T13:48:48.620Z"
+  },
+  {
+    "id": "10d6db0d-9ab4-46ba-97a1-23304d717211",
+    "amount": 1200,
+    "date": "2026-05-31",
+    "category": "Entertainment",
+    "description": "120",
+    "createdAt": "2026-06-03T13:50:44.078Z"
+  },
+  {
+    "id": "999ce94e-1ef3-475a-9a4d-71a798b9e562",
+    "amount": 1200,
+    "date": "2026-06-03",
+    "category": "Transport",
+    "description": "",
+    "createdAt": "2026-06-03T14:02:03.127Z"
+  }
+]
