@@ -10,13 +10,10 @@ This project is a personal finance tracker built as a monorepo with a Node.js/Ex
 
 ## Live Demo Links
 
-> ⚠️ This project is **not deployed** — it runs entirely on localhost.  
-> A deployment would require hosting the Express server (e.g. Render, Railway) and the Vite build (e.g. Vercel, Netlify) separately, and replacing the JSON file store with a hosted database.
-
 | Service | URL |
 |---|---|
-| Frontend | `http://localhost:5173` (Vite dev server) |
-| Backend API | `http://localhost:3001/api` (Express dev server) |
+| Frontend | [https://expense-tracker-eight-beige-55.vercel.app](https://expense-tracker-eight-beige-55.vercel.app) |
+| Backend API | [https://expense-tracker-2zfb.onrender.com/api](https://expense-tracker-2zfb.onrender.com/api) |
 
 ---
 
@@ -109,7 +106,7 @@ Visit **http://localhost:5173** in your browser.
 
 ## API Documentation
 
-**Base URL:** `http://localhost:3001/api`
+**Base URL:** `https://expense-tracker-2zfb.onrender.com/api`
 
 All request bodies and responses are JSON. All mutating routes (`POST`, `PUT`) run through the validation middleware before the controller executes.
 
@@ -325,7 +322,6 @@ project-1/
 - **Database** — data is stored in a flat JSON file. This is intentional for local-only use (no setup required) but would not scale or survive a server restart in a cloud environment.
 - **Authentication** — there is no login. The API is open to anyone on the same network.
 - **Pagination** — all expenses are returned in a single response. This is fine for hundreds of records but would break for tens of thousands.
-- **Deployed environment** — no hosting was configured. Doing so properly requires migrating the data store, adding environment variables, and setting up CORS for the production origin.
 - **Automated tests** — no unit or integration tests exist. This was the largest deliberate trade-off given the time available.
 - **Recurring expenses** — there is no concept of a repeating expense (e.g. a monthly subscription).
 
