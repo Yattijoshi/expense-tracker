@@ -8,7 +8,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: 'https://expense-tracker-2zfb.onrender.com/api',
   headers: { 'Content-Type': 'application/json' },
 });
 
