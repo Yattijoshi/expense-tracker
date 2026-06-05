@@ -12,7 +12,12 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // ─── Global Middleware ───────────────────────────────────────────────────────
-app.use(cors({ origin: 'http://localhost:5173' })); // allow Vite dev server
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'https://expense-tracker-eight-beige-55.vercel.app'
+  ]
+})); // allow Vite dev server
 app.use(express.json());
 
 // ─── Routes ─────────────────────────────────────────────────────────────────
